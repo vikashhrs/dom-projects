@@ -1,6 +1,6 @@
 let min = 1,
     max = 10,
-    winning_num = 2,
+    winning_num = Math.ceil(Math.random() * max + 1),
     guessesLeft = 3;
 
 const game = document.querySelector("#game"),
@@ -23,7 +23,6 @@ guessBtn.addEventListener('click', function(e) {
     if (isNaN(guess) || guess < min || guess > max) {
         setMessage(`Please enter a number between ${min} and ${max}`, 'red');
     }
-
     if (guess === winning_num) {
         toggleButtons(true);
         gameOver(true, `${winning_num} is correct, You WIN!`)
